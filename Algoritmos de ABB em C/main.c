@@ -88,6 +88,7 @@ int main(){
 								imprimeavl_posordem(arvore);
 								printf("\n");
 							break;
+								
 							case 2:
 								arq=fopen("arvore.txt","w");
 								fprintf(arq,"\n########## Impressão Pré-ordem ##########\n");
