@@ -4,20 +4,11 @@ import java.util.Scanner;
 
 public class UserView{
   Scanner input = new Scanner (System.in);
-  private int tipoArvore; 
-  private int tamArvore;
   
-	
-	public UserView(){
-                int tipoArvore; 
-		int tamArvore;
-		
-	}
-	
-	
+ 	
 //seta o tipo de árvore para teste
 	
-public void defineTipoArvore(){
+public int defineTipoArvore(){
 		int aux;
   do{
 			System.out.printf	("========= ESCOLHA UMA OPÇÃO DE ARVORE =========\n");
@@ -28,13 +19,13 @@ public void defineTipoArvore(){
 		  System.out.printf             ("==== DIGITE UMA OPÇÃO VÁLIDA\n");
 	  }
   }while((aux!=1)&&(aux!=2));
-		this.tipoArvore=aux;
+		return aux;
 	
 	}
 	
 //seta o tamanho inicial da árvore para teste
 	
-public void defineTamanhoArvore(){
+public int defineTamanhoArvore(){
 		int	opTam;
 		
 		do{
@@ -52,20 +43,25 @@ public void defineTamanhoArvore(){
 			
 			switch(opTam){
                 case 1:
-                this.tamArvore = 500000; //500K
+                return = 500000; //500K
                 break;
+					
                 case 2:
-                this.tamArvore = 1000000; //1M
+                return = 1000000; //1M
                 break;
+					
                 case 3:
-                this.tamArvore = 10000000; //10M
+                return = 10000000; //10M
                 break;
+					
                 case 4:
-                this.tamArvore = 50000000; //50M
+                return = 50000000; //50M
                 break;
+					
                 case 5:
-                this.tamArvore = 100000000; //100M
+                return = 100000000; //100M
                 break;
+					
 				default:
 				break;
 			}
@@ -86,6 +82,7 @@ public int defineTeste(){
 			System.out.printf("==== DIGITE UMA OPÇÃO VÁLIDA\n");
 		}
 	}while((opTest!=1)&&(opTest!=2)&&(opTest!=3)&&(opTest!=4));
+	
 	return opTest;
 }
 }
