@@ -1,31 +1,40 @@
-package ArvoreAVL;
+package TrabalhoSO;
 
 import java.util.Scanner;
 
 public class UserView{
   Scanner input = new Scanner (System.in);
+  private int tipoArvore; 
+  private int tamArvore;
   
- 	
+	
+	public UserView(){
+                int tipoArvore; 
+		int tamArvore;
+		
+	}
+	
+	
 //seta o tipo de árvore para teste
 	
-public int defineTipoArvore(){
+public void defineTipoArvore(){
 		int aux;
   do{
 			System.out.printf	("========= ESCOLHA UMA OPÇÃO DE ARVORE =========\n");
 			System.out.printf	("==== [1] Arvore Binaria de Busca:\n");
-      		System.out.printf   ("==== [2] ArvoreAVL:\n");
+      		System.out.printf               ("==== [2] ArvoreAVL:\n");
       		aux = input.nextInt();
 	  if((aux!=1)&&(aux!=2)){
 		  System.out.printf             ("==== DIGITE UMA OPÇÃO VÁLIDA\n");
 	  }
   }while((aux!=1)&&(aux!=2));
-		return aux;
+		this.tipoArvore=aux;
 	
 	}
 	
 //seta o tamanho inicial da árvore para teste
 	
-public int defineTamanhoArvore(){
+public void defineTamanhoArvore(){
 		int	opTam;
 		
 		do{
@@ -43,25 +52,20 @@ public int defineTamanhoArvore(){
 			
 			switch(opTam){
                 case 1:
-                return = 500000; //500K
+                this.tamArvore = 500000; //500K
                 break;
-					
                 case 2:
-                return = 1000000; //1M
+                this.tamArvore = 1000000; //1M
                 break;
-					
                 case 3:
-                return = 10000000; //10M
+                this.tamArvore = 10000000; //10M
                 break;
-					
                 case 4:
-                return = 50000000; //50M
+                this.tamArvore = 50000000; //50M
                 break;
-					
                 case 5:
-                return = 100000000; //100M
+                this.tamArvore = 100000000; //100M
                 break;
-					
 				default:
 				break;
 			}
@@ -82,7 +86,6 @@ public int defineTeste(){
 			System.out.printf("==== DIGITE UMA OPÇÃO VÁLIDA\n");
 		}
 	}while((opTest!=1)&&(opTest!=2)&&(opTest!=3)&&(opTest!=4));
-	
 	return opTest;
 }
 }
