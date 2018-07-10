@@ -88,4 +88,13 @@ public int defineTeste(){
 	}while((opTest!=1)&&(opTest!=2)&&(opTest!=3)&&(opTest!=4));
 	return opTest;
 }
+
+    public int getTipoArvore() {
+        return tipoArvore;
+    }
+
+    public int getTamArvore() {
+        return tamArvore;
+    }
+
 }
