@@ -24,7 +24,7 @@ public preencheABB(){
 	Nodo abb = criarArvore(rd.nextInt(2*(this.tamanho)));
 	
 	for (int i=this.tamanho; i>1; i--){
-		inserir(abb, rd.nextInt(2*(this.tamanho)));
+		inserirBin(abb, rd.nextInt(2*(this.tamanho)));
 	}
 	return abb;
 }
