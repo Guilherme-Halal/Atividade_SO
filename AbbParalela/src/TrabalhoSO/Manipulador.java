@@ -45,6 +45,7 @@ public class Manipulador {
 			} else if ((raiz.getKey()) > key){
 				//Vai para esquerda
 
+                                
 					if((raiz.getEsq()) == null){
 
 						this.novo = new Nodo(key);
@@ -108,7 +109,7 @@ public class Manipulador {
 
 			if(raiz.getKey() < key){
 
-					raiz.setPeso(raiz.getPeso() + 1);
+					raiz.setPeso(raiz.getPeso() - 1);
                                         
  /*durante o teste deu erro nesta linha*/   raiz.setDir(inserirAvl(raiz.getDir(), key)); 
 
