@@ -1,0 +1,41 @@
+Vamos propor 3 cenários de abordagens de paralelismo (acho que ambas são simples de implementar):
+
+>>proposta 1:
+    1) A partir de um vetor de árvores (abb), onde cada nodo vai guardar:
+        1) O horário que foi inserido [para validação nas buscas paralelas onde forem localizados o mesmo valor mais de uma vez (tipo aquele negócio de estampa de tempo)]
+        2) O peso (fator k) da sua sub aŕvore para contar o número de rotação que aconteceriam numa AVL hipotética com ou sem paralelismo
+    2) Nas solicitações de inserção, será disparada uma thread para cada índice do vetor, retornando apenas a inserção que geraria menor desbalanceamento
+    3) A cada inserção realizada atualizar um contador de rotações 
+    4) Supõe-se que esta abordagem resultaria num contador de rotações menor do que em uma inserção sem essa eurística
+
+>>proposta 1.2:
+    1) Buscar nestas árvores.
+    2) Ocorre paralela e todas tem que terminar antes de retornar a busca.
+    2.1)não achou em nenhuma árvore [contabilizar tempo de busca]
+    2.2)achou numa árvore só [retorna o valor e contabilizar tempo de busca]
+    2.3)achou em mais de uma árvore [retorna o inserido mais recentemente o valor e contabilizar tempo de busca]
+
+>>proposta 2:
+    1) A partir de um vetor de árvores (AVL):
+    2) Faremos multiplas inserções em massa (preenchimento da árvore) paralelamente onde:   
+        2.1) tendo um valor máximo (tam) para a chave (x) de inserção
+        2.2) as inserções ficam organizadas como [0<x<1/5(tam)][1/5(tam)<=x<2/5(tam)][2/5(tam)<=x<3/5(tam)][3/5(tam)<=x<4/5(tam)][4/5(tam)<=x<5/5(tam)]
+                                                 [       0    ][         1          ][           2        ][          3         ][           4        ]
+    3) Compararemos o tempo total pra inserir n chaves sequencialmente contra o tempo para inserir n chaves paralelamente
+    4) As buscas serão feitas de forma de forma sequancial n árvore de correspondência do intervalo da chave 
+    5) compararemos o tempo de busca com o de uma árvore única AVL com os elemento (das 5 árvores juntas) da abordagem paralela.
+
+>>proposta 3:
+    1) A partir de um vetor de árvores (AVL), onde cada índice vai guardar a raiz da árvore e um contador de inserções;
+    2) Cada nodo tem que guarda o horário de inserção [para validação nas buscas paralelas onde forem localizados o mesmo valor mais de uma vez (tipo aquele negócio de estampa de tempo)]
+    3) Inserção não paralela na árvore de menor quantidade de elementos até o momento, ou seja o vetor ficará ordenado por quantidade de elementos em cada árvore
+
+>>proposta 3.2:
+    1) Buscar nestas árvores.
+    2) Ocorre paralela e todas tem que terminar antes de retornar a busca.
+    2.1)não achou em nenhuma árvore [contabilizar tempo de busca]
+    2.2)achou numa árvore só [retorna o valor e contabilizar tempo de busca]
+    2.3)achou em mais de uma árvore [retorna o inserido mais recentemente o valor e contabilizar tempo de busca]
+
+Compararemos o tempo de busca paralelo vs o tempo de busca em uma AVL única com os mesmos elementos
+
