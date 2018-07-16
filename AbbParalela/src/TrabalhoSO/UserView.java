@@ -6,12 +6,10 @@ public class UserView{
   Scanner input = new Scanner (System.in);
   private int tipoArvore; 
   private int tamArvore;
+  private int proposta;
   
 	
-	public UserView(){
-                int tipoArvore; 
-		int tamArvore;
-		
+	public UserView(){		
 	}
 	
 	
@@ -34,7 +32,7 @@ public void defineTipoArvore(){
 	
 //seta o tamanho inicial da árvore para teste
 	
-public void defineTamanhoArvore(){
+public void defineQuantidadeElementos(){
 		int	opTam;
 		
 		do{
@@ -44,11 +42,12 @@ public void defineTamanhoArvore(){
 			System.out.printf("==== [3] 10M\n");
 			System.out.printf("==== [4] 50M\n");
 			System.out.printf("==== [5] 100M\n");
+                                                          System.out.printf("==== [6] 100\n");
 			opTam=input.nextInt();
-			 if((opTam!=1)&&(opTam!=2)&&(opTam!=3)&&(opTam!=4)&&(opTam!=5)){
+			 if((opTam!=1)&&(opTam!=2)&&(opTam!=3)&&(opTam!=4)&&(opTam!=5)&&(opTam!=6)){
 		  		System.out.printf	("==== DIGITE UMA OPÇÃO VÁLIDA\n");
 			 }
-			}while((opTam!=1)&&(opTam!=2)&&(opTam!=3)&&(opTam!=4)&&(opTam!=5));
+			}while((opTam!=1)&&(opTam!=2)&&(opTam!=3)&&(opTam!=4)&&(opTam!=5)&&(opTam!=6));
 			
 			switch(opTam){
                 case 1:
@@ -66,6 +65,8 @@ public void defineTamanhoArvore(){
                 case 5:
                 this.tamArvore = 100000000; //100M
                 break;
+                case 6:
+                this.tamArvore = 100;//100
 				default:
 				break;
 			}
@@ -89,12 +90,23 @@ public int defineTeste(){
 	return opTest;
 }
 
+public void defineProposta(){
+    
+        System.out.println("Selecione uma das seguintes propostas: ");
+        System.out.println("2 - Proposta 2.");
+        System.out.println("3 - Proposta 3.");
+        this.proposta = input.nextInt();
+    }
     public int getTipoArvore() {
         return tipoArvore;
     }
 
     public int getTamArvore() {
         return tamArvore;
+    }
+    
+    public int getProposta(){
+        return this.proposta;
     }
 
 }
